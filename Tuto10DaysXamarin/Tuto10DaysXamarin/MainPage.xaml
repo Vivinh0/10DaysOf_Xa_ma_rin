@@ -6,14 +6,14 @@
              mc:Ignorable="d"
              x:Class="Tuto10DaysXamarin.MainPage">
 
-    <StackLayout Margin="16,20,16,0">
-        <!-- Place new controls here -->
-        <Entry x:Name="entradaNombre" Placeholder="Introduce tu nombre"/>
-        <Button Text="Di hola" Clicked="Boton_Pinchado"/>
-        <Label
-            x:Name="etiquetaSaludo"
-            Text="Hola forastero, bienbenido a 10 días de Xa, ma, rin, Xamarin"
-            FontSize="20"/>
+    <StackLayout Margin="16,20">
+        <Entry x:Name="entradaTitulo"
+               Placeholder="Titulo de la entrada."/>
+        <Editor x:Name="editorCuerpo"
+                VerticalOptions="FillAndExpand"
+                Placeholder="Escribe lo que quieras..."/>
+        <Button Text="Guardar"/>
+        <Button Text="Cancelar"/>
     </StackLayout>
 
 </ContentPage>
