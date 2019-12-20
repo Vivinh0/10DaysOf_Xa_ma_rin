@@ -8,12 +8,16 @@
 
     <StackLayout Margin="16,20">
         <Entry x:Name="entradaTitulo"
-               Placeholder="Titulo de la entrada."/>
+               Placeholder="Titulo de la entrada."
+               Style="{StaticResource estiloEntradaPrincipal}"/>
         <Editor x:Name="editorCuerpo"
                 VerticalOptions="FillAndExpand"
-                Placeholder="Escribe lo que quieras..."/>
-        <Button Text="Guardar"/>
-        <Button Text="Cancelar"/>
+                Placeholder="Escribe lo que quieras..."
+                Style="{StaticResource estiloEditorPrincipal}"/>
+        <Button Text="Guardar"
+                Style="{StaticResource estiloBotonPrincipal}"/>
+        <Button Text="Cancelar"
+                Style="{StaticResource estiloBotonCancelar}"/>
     </StackLayout>
 
 </ContentPage>

@@ -6,6 +6,37 @@
              mc:Ignorable="d"
              x:Class="Tuto10DaysXamarin.App">
     <Application.Resources>
+        <Color x:Key="colorPrincipal">#326273</Color>
+        <Color x:Key="colorBlanco">#EEEEEE</Color>
+        <Color x:Key="colorNegro">#1C1C1C</Color>
+        <Color x:Key="colorAcentuacion">#4392F1</Color>
+        <Color x:Key="colorDestructivo">#EF798A</Color>
+        <Color x:Key="colorSecundario">#BFBFBF</Color>
 
+        <Style TargetType="Button" x:Key="estiloBotonPrincipal">
+            <Setter Property="BackgroundColor" 
+                    Value="{StaticResource colorAcentuacion}"/>
+            <Setter Property="TextColor" 
+                    Value="{StaticResource colorBlanco}"/>
+        </Style>
+        <Style TargetType="Button" x:Key="estiloBotonCancelar"
+               BasedOn="{StaticResource estiloBotonPrincipal}">
+            <Setter Property="BackgroundColor" 
+                    Value="{x:DynamicResource colorSecundario}"/>
+        </Style>
+        <Style TargetType="Button" x:Key="estiloBotonBorrar"
+               BasedOn="{StaticResource estiloBotonPrincipal}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource colorDestructivo}"/>
+        </Style>
+        <Style TargetType="Entry" x:Key="estiloEntradaPrincipal">
+            <Setter Property="PlaceholderColor"
+                    Value="{StaticResource colorSecundario}"/>
+            <Setter Property="TextColor"
+                    Value="{StaticResource colorNegro}"/>
+        </Style>
+        <Style TargetType="Editor" x:Key="estiloEditorPrincipal"
+               BasedOn="estiloEntradaPrincipal">
+        </Style>
     </Application.Resources>
 </Application>
