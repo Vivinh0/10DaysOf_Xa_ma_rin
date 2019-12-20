@@ -17,5 +17,20 @@ namespace Tuto10DaysXamarin
         {
             InitializeComponent();
         }
+
+        void Boton_Pinchado(object sender, System.EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(entradaNombre.Text))
+            {
+                DisplayAlert("Error", "Tu nombre no puede estar vacío.",
+                    "Ahora lo escribo");
+            }
+            else
+            {
+                etiquetaSaludo.Text = $"Hola {entradaNombre.Text}, bienbenido" +
+                    $" a 10 días de Xa, ma, rin, Xamarin.";
+            }
+        }
+
     }
 }
