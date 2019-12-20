@@ -35,8 +35,5 @@
             <Setter Property="TextColor"
                     Value="{StaticResource colorNegro}"/>
         </Style>
-        <Style TargetType="Editor" x:Key="estiloEditorPrincipal"
-               BasedOn="estiloEntradaPrincipal">
-        </Style>
     </Application.Resources>
 </Application>

@@ -8,15 +8,21 @@
 
     <StackLayout Margin="16,20">
         <Entry x:Name="entradaTitulo"
+               TextChanged="entradaTitulo_TextoCambiado"
                Placeholder="Titulo de la entrada."
                Style="{StaticResource estiloEntradaPrincipal}"/>
         <Editor x:Name="editorCuerpo"
+                TextChanged="contenidoEditor_TextoCambiado"
                 VerticalOptions="FillAndExpand"
                 Placeholder="Escribe lo que quieras..."
-                Style="{StaticResource estiloEditorPrincipal}"/>
-        <Button Text="Guardar"
+                Style="{StaticResource estiloEntradaPrincipal}"/>
+        <Button x:Name="botonGuardar"
+                Clicked="botonGuardar_Click"
+                Text="Guardar"
+                IsEnabled="False"
                 Style="{StaticResource estiloBotonPrincipal}"/>
-        <Button Text="Cancelar"
+        <Button x:Name="botonCancelar"
+                Text="Cancelar"
                 Style="{StaticResource estiloBotonCancelar}"/>
     </StackLayout>
 

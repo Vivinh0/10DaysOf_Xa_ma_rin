@@ -18,19 +18,70 @@ namespace Tuto10DaysXamarin
             InitializeComponent();
         }
 
-        void Boton_Pinchado(object sender, System.EventArgs e)
+        //void Boton_Pinchado(object sender, System.EventArgs e)
+        //{
+        //    if(string.IsNullOrWhiteSpace(entradaNombre.Text))
+        //    {
+        //        DisplayAlert("Error", "Tu nombre no puede estar vacío.",
+        //            "Ahora lo escribo");
+        //    }
+        //    else
+        //    {
+        //        etiquetaSaludo.Text = $"Hola {entradaNombre.Text}, bienbenido" +
+        //            $" a 10 días de Xa, ma, rin, Xamarin.";
+        //    }
+        //}
+
+        /* Comprueba si se tiene que habilitar o deshabilitar
+         * el botón de guardado
+         */
+        private void compruebaSiHabilitarGuardado()
         {
-            if(string.IsNullOrWhiteSpace(entradaNombre.Text))
+            /*
+             * Si la entrada del titulo o el editor del cuerpo están
+             * vacíos, desativa el botón guardar. Si ambos tienen
+             * texto lo habilita
+             */
+            if( string.IsNullOrWhiteSpace(entradaTitulo.Text) 
+                || string.IsNullOrWhiteSpace(editorCuerpo.Text))
             {
-                DisplayAlert("Error", "Tu nombre no puede estar vacío.",
-                    "Ahora lo escribo");
+                botonGuardar.IsEnabled = false;
             }
             else
             {
-                etiquetaSaludo.Text = $"Hola {entradaNombre.Text}, bienbenido" +
-                    $" a 10 días de Xa, ma, rin, Xamarin.";
+                botonGuardar.IsEnabled = true;
             }
+
         }
 
+        /* Comprueba si se tiene que habilitar o deshabilitar
+         * el botón de guardado cada vez que se modifica el
+         * contenido del campo del titulo.
+         */
+        public void entradaTitulo_TextoCambiado(object sender,
+            Xamarin.Forms.TextChangedEventArgs e)
+        {
+            compruebaSiHabilitarGuardado();
+        }
+
+        /* Comprueba si se tiene que habilitar o deshabilitar
+         * el botón de guardado cada vez que se modifica el
+         * contenido del editor.
+         */
+        public void contenidoEditor_TextoCambiado(object sender, 
+            Xamarin.Forms.TextChangedEventArgs e)
+        {
+            compruebaSiHabilitarGuardado();
+        }
+
+        /*
+         * Limpia el campo del titulo y el editor al pulsar el botón
+         * guardar
+         */
+         public void botonGuardar_Click(object sender, System.EventArgs e)
+        {
+            entradaTitulo.Text = string.Empty;
+            editorCuerpo.Text = string.Empty;
+        }
     }
 }
