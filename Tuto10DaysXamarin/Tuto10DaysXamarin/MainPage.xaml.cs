@@ -5,8 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Tuto10DaysXamarin.Modelos;
-using SQLite;
 
 namespace Tuto10DaysXamarin
 {
@@ -82,35 +80,8 @@ namespace Tuto10DaysXamarin
          */
          public void botonGuardar_Click(object sender, System.EventArgs e)
         {
-            // Necesita ser añadido using Tuto10DaysXamarin.Modelos;
-            EntradaDiario nuevaEntradaDiario = new EntradaDiario()
-            {
-                titulo = entradaTitulo.Text,
-                contenido = editorCuerpo.Text,
-                fechaCreacion = DateTime.Now
-            };
-
-            int itemsInsertados = 0;
-            // Necesita se añadido using SQLite;
-            using (SQLiteConnection conex = new SQLiteConnection(App.RutaBaseDatos))
-            {
-                conex.CreateTable<EntradaDiario>();
-                itemsInsertados = conex.Insert(nuevaEntradaDiario);
-            }
-            // Aquí conex ha sido liberada y, por lo tanto, cerrada
-
-            if ( itemsInsertados > 0)
-            {
-                entradaTitulo.Text = string.Empty;
-                editorCuerpo.Text = string.Empty;
-            }
-            else
-            {
-                DisplayAlert("Error", "Hubo un error al guardar al nueva " +
-                    "entrada del diario, por favor prueba de nuevo",
-                    "Aceptar");
-            }
-
+            entradaTitulo.Text = string.Empty;
+            editorCuerpo.Text = string.Empty;
         }
     }
 }
