@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace Tuto10DaysXamarin.Droid
 {
@@ -21,7 +22,15 @@ namespace Tuto10DaysXamarin.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            string nombreFichero = "baseDatos.db3";
+            string rutaDirectorio = 
+                System.Environment.GetFolderPath(
+                    System.Environment.SpecialFolder.MyDocuments);
+            // Necesita ser añadido System.IO;
+            string rutaCompleta = Path.Combine(rutaDirectorio, nombreFichero);
+
+            LoadApplication(new App(rutaCompleta));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

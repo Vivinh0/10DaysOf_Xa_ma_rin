@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -17,11 +18,16 @@ namespace Tuto10DaysXamarin.UWP
 {
     public sealed partial class MainPage
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
+            public MainPage()
+            {
+                this.InitializeComponent();
 
-            LoadApplication(new Tuto10DaysXamarin.App());
-        }
+                string nombreFichero = "baseDatos.db3";
+                // Necesita ser añadido Windows.Storage;
+                string rutaDirectorio = ApplicationData.Current.LocalFolder.Path;
+                string rutaCompleta = Path.Combine(rutaDirectorio, nombreFichero);
+
+                LoadApplication(new Tuto10DaysXamarin.App(rutaCompleta));
+            }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.IO;
 using Foundation;
 using UIKit;
 
@@ -23,7 +23,19 @@ namespace Tuto10DaysXamarin.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            string nombreFichero = "database.db3";
+
+            // Necesita ser añadido System.IO;
+            string rutaDirectorio =
+                Path.Combine(
+                    Environment.GetFolderPath(
+                        Environment.SpecialFolder.MyDocuments),
+                    "..",
+                    "Library");
+            string rutaCompleta = Path.Combine(rutaDirectorio, nombreFichero);
+
+            LoadApplication(new App(rutaCompleta));
 
             return base.FinishedLaunching(app, options);
         }

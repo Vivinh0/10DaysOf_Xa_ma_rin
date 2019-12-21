@@ -6,9 +6,19 @@ namespace Tuto10DaysXamarin
 {
     public partial class App : Application
     {
-        public App()
+        /*
+         * Añadimos la ruta como un atributo statico
+         */
+        public static string RutaBaseDatos;
+        
+        public App(string rutaBaseDatos)
         {
             InitializeComponent();
+
+            /*
+             * Asignamos la ruta que hemos pedido como parámetro
+             */
+            RutaBaseDatos = rutaBaseDatos;
 
             MainPage = new MainPage();
         }
