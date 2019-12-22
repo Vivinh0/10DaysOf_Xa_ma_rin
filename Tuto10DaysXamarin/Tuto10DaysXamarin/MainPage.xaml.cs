@@ -111,5 +111,10 @@ namespace Tuto10DaysXamarin
                     "Aceptar");
             }
         }
+
+        public void botonCancelar_Click(object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }
